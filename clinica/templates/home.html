@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{%block content %}
+
+</div>
+</form>
+
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#exames">Exames Médicos</a></li>
+            <li><a href="#localidade">Localidade</a></li>
+        </ul>
+    </nav>
+    <h1>Morvan Clínica Médica</h1>
+    <div class="navbar">
+        
+
+    </div>
+</header>
+
+<!-- Carrossel de Imagens -->
+<div class="carousel-container">
+    <div class="carousel">
+        <div class="carousel-item active">
+            <img src="https://via.placeholder.com/1200x500/ff99bb/fff?text=Imagem+1" alt="Imagem 1">
+        </div>
+        <div class="carousel-item">
+            <img src="https://via.placeholder.com/1200x500/ffccee/fff?text=Imagem+2" alt="Imagem 2">
+        </div>
+        <div class="carousel-item">
+            <img src="https://via.placeholder.com/1200x500/ff99bb/fff?text=Imagem+3" alt="Imagem 3">
+        </div>
+    </div>
+    <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
+    <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
+</div>
+
+<section id="sobre">
+    <h2>Sobre</h2>
+    <p>Bem-vindo à Morvan Clínica Médica, onde oferecemos um atendimento de qualidade focado no bem-estar e na saúde dos nossos pacientes. Nossa missão é garantir um atendimento humanizado com profissionais especializados em diversas áreas da medicina.</p>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</section>
+
+<section id="exames">
+    <h2>Exames Médicos</h2>
+    <p>Oferecemos uma ampla gama de exames médicos, como exames de sangue, ultrassonografia, ressonância magnética e check-ups completos, utilizando os melhores equipamentos e tecnologia de ponta.</p>
+</section>
+
+<section id="localidade">
+    <h2>Localidade</h2>
+    <p>Estamos localizados na Av. Paulista, 1000 - São Paulo, SP. Nossa clínica oferece fácil acesso e estacionamento conveniado para maior conforto dos nossos pacientes.</p>
+</section>
+
+<!-- Modal de Registro -->
+<div id="modalRegister" class="modal">
+    <div class="modal-content-register">
+        <h3>Registro de Paciente</h3>
+        <input type="text" placeholder="Nome Completo">
+        <input type="email" placeholder="E-mail">
+        <input type="text" placeholder="Telefone">
+        <input type="password" placeholder="Senha">
+        <button onclick="closeRegisterModal()">Registrar</button>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Morvan Clínica Médica - Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        const slides = document.querySelectorAll('.carousel-item');
+        if (index >= slides.length) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = slides.length - 1;
+        } else {
+            currentIndex = index;
+        }
+
+        slides.forEach((slide, i) => {
+            slide.style.display = i === currentIndex ? 'block' : 'none';
+        });
+    }
+
+    function nextSlide() {
+        showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentIndex - 1);
+    }
+
+    // Inicializa o carrossel
+    document.addEventListener('DOMContentLoaded', () => {
+        showSlide(currentIndex);
+    });
+
+    // Scroll suave ao clicar nos links de navegação
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+{%endblock%}
+

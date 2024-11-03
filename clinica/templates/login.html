@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Morvan Clínica Médica</title>
+    <link rel="icon" type="image/png" href="https://link-para-seu-icon.png" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fdf1f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            color: #d45b8e;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group input:focus {
+            border-color: #d45b8e;
+            outline: none;
+        }
+
+        .btn {
+            background-color: #d45b8e;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #ff99bb;
+        }
+
+        .social-login {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .social-login a {
+            text-decoration: none;
+            color: #d45b8e;
+        }
+
+        .social-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+
+        .social-button:hover {
+            background-color: #ccc;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+
+    
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="form-group">
+            <label for="username">Usuário</label>
+            <input type="text" id="username" placeholder="Digite seu usuário" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Senha</label>
+            <input type="password" id="password" placeholder="Digite sua senha" required>
+        </div>
+        <button class="btn">Entrar</button>
+
+        <div class="social-login">
+            <div class="social-button" onclick="socialLogin('Facebook')">Entrar com Facebook</div>
+            <div class="social-button" onclick="socialLogin('Google')">Entrar com Google</div>
+        </div>
+
+        <p style="text-align: center; margin-top: 10px;">
+            <a href="#">Esqueceu a senha?</a> | 
+            <a href="#" onclick="register()">Registrar</a>
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Morvan Clínica Médica - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function socialLogin(platform) {
+            alert('Login com ' + platform);
+            // Aqui você pode adicionar a lógica de autenticação com a rede social
+        }
+
+        function register() {
+            alert('Abrir formulário de registro');
+            // Aqui você pode adicionar a lógica para abrir um formulário de registro
+        }
+    </script>
+
+</body>
+</html>
